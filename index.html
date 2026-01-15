@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Engenharia automotiva de alta performance. Preparação de motores e eletrônica embarcada.">
+    <title>SoldHype | Performance Engineering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="progress-bar"
+        style="position: fixed; top: 0; left: 0; height: 4px; background: #e60000; z-index: 10001; width: 0%; transition: width 0.1s ease;">
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">SoldHype Performance</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="orcamento.html">Orçamentos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-interativo">
+        <div class="container hero-grid">
+            <div class="hero-texto">
+                <h1 class="titulo-destaque">SOLDHYPE<br> <span class="texto-outline">PERFORMANCE</span></h1>
+                <div class="barra-detalhe"></div>
+                <p>Transformamos engenharia original em máquinas de competição. Passe o mouse ao lado e veja a evolução.
+                </p>
+            </div>
+
+            <div class="carro-container" id="carro-reveal">
+                <img src="assets/img/911.jpeg" class="carro-img base" alt="Carro Base">
+
+                <div class="revelar-wrapper">
+                    <img src="assets/img/911 g.jpeg" class="carro-img" alt="Carro Revelado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg style="display:none;">
+        <defs>
+            <filter id="goo-effect">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="100px" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                    result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <section class="video-divider">
+        <video autoplay muted loop playsinline class="video-divider-bg">
+            <source src="assets/video/lewis.mp4" type="video/mp4">
+        </video>
+        <div class="video-divider-content">
+            <div class="container">
+                <span class="tagline">SoldHype</span>
+                <h2>Overcoming limits for the better</h2>
+                <p>Nossa engenharia nasce nos ambientes mais desafiadores do mundo para redefinir o que é possível
+                    nas ruas.</p>
+            </div>
+        </div>
+    </section>
+    <section id="projetos" class="secao secao-cinza">
+        <div class="container">
+            <h2 style="text-align: center;">Nossos Projetos</h2>
+
+            <div class="filtros-navegacao" style="text-align: center; margin-bottom: 40px;">
+                <p
+                    style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: var(--primary-color);">
+                    Filtrar por Especialidade</p>
+                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 15px;">
+                    <a href="categoria-pista.html" class="btn-categoria">Pista</a>
+                    <a href="categoria-rally.html" class="btn-categoria">Rally</a>
+                    <a href="categoria-street.html" class="btn-categoria">Street</a>
+                    <a href="categoria-moto.html" class="btn-categoria">Motos</a>
+                    <a href="categoria-drift.html" class="btn-categoria">Drift</a>
+                    <a href="categoria-off road.html" class="btn-categoria">Off-Road</a>
+                </div>
+            </div>
+
+            <div class="grid-projetos">
+                <article class="card-projeto">
+                    <img src="assets/img/civic f.jpeg" alt="civic" class="img-card">
+                    <h3>Honda Civic SI</h3>
+                    <p class="descricao-projeto">O equilíbrio perfeito entre aspiração natural e precisão em pista.</p>
+                    <a class="botao" href="projeto-civic.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/hp4 f.jpeg" alt="HP4" class="img-card">
+                    <h3>Bmw S1000RR HP4</h3>
+                    <p class="descricao-projeto">Um ícone do DTM restaurado com tecnologias de performance moderna.</p>
+                    <a class="botao" href="projeto-hp4.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/supra f.jpeg" alt="supra" class="img-card">
+                    <h3>Toyota Supra MK5</h3>
+                    <p class="descricao-projeto">Engenharia bruta aplicada para o máximo domínio em qualquer terreno.
+                    </p>
+                    <a class="botao" href="projeto-supra.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/mini f.jpeg" alt="mini" class="img-card">
+                    <h3>Mini Cooper WRC</h3>
+                    <p class="descricao-projeto">Agilidade compacta levada ao limite com setup de competição.</p>
+                    <a class="botao" href="mini.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/bmw d.jpeg" alt="BMW M4" class="img-card">
+                    <h3>Bmw M4 Endurance</h3>
+                    <p class="descricao-projeto">Construída para resistência extrema e tempos de volta recordes.</p>
+                    <a class="botao" href="projeto-bmw.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/Ford Raptor.jpeg" alt="BMW M4" class="img-card">
+                    <h3>Ford Raptor</h3>
+                    <p class="descricao-projeto">Performance Off-Road de elite com torque massivo e suspensão reforçada.
+                    </p>
+                    <a class="botao" href="projeto-raptor.html">Ver Detalhes</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-container">
+        <div class="cta-box">
+            <div class="cta-text">
+                <h2>Gostou de algo?</h2>
+                <p>Solicite seu orçamento com nossa equipe e leve seu projeto para o próximo nível.</p>
+            </div>
+            <div class="cta-action">
+                <a href="orcamento.html" class="btn-soldhype-cta">
+                    <span>Solicitar Orçamento</span>
+                    <i class="arrow-icon">→</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-divider loja-divider" id="loja">
+        <video autoplay muted loop playsinline class="video-divider-bg">
+            <source src="assets/video/lojav.mp4" type="video/mp4">
+        </video>
+
+        <div class="container video-divider-content">
+            <div class="text-center">
+                <span class="tagline">SoldHype Performance Collection</span>
+                <h2>Vista a Performance</h2>
+                <p style="color: #ccc; margin-bottom: 25px;">Coleção oficial de vestuário e acessórios.</p>
+                <a href="loja.html" class="botao">Ver Loja Oficial</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="secao">
+        <div class="container">
+            <h2>Contato</h2>
+            <p>Quer falar conosco? Acesse um dos canais abaixo:</p>
+            <ul class="lista-contato">
+                <li><strong>Email:</strong> paidoszjunior@gmail.com</li>
+                <li><strong>Youtube:</strong> <a href="https://www.youtube.com/@paidoszz." target="_blank">Canal
+                        Oficial</a></li>
+                <li><strong>Instagram:</strong> <a
+                        href="https://www.instagram.com/paidoszz?igsh=OHg0NnJ3YTVxbGRp&utm_source=qr"
+                        target="_blank">@paidoszz</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Marcelo Paidosz Junior. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Selecionamos todos os elementos que devem animar
+            const elementos = document.querySelectorAll('.sobre-texto, .sobre-foto, .card-projeto, #contato .container');
+
+            elementos.forEach((el, index) => {
+                // 1. Definimos o estado inicial via JS para não precisar mudar o CSS
+                el.style.opacity = "0";
+                el.style.transform = "translateY(30px)";
+                el.style.transition = "opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+
+                // 2. Disparamos a animação com delay (o 3º card terá o maior delay)
+                setTimeout(() => {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+
+                    // 3. A CHAVE PARA O 3º CARD: 
+                    // Após a animação de entrada terminar (1 segundo depois), 
+                    // removemos o "transform" inline para que o ":hover" do seu CSS volte a mandar no elemento.
+                    setTimeout(() => {
+                        el.style.transform = "";
+                    }, 1000);
+
+                }, 200 * index);
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            // Se descer mais de 20px, ele ativa o modo sólido
+            if (window.scrollY > 20) {
+                header.classList.add('header-ativo');
+            } else {
+                header.classList.remove('header-ativo');
+            }
+        });
+    </script>
+
+    <script>
+        window.onscroll = function () {
+            // Calcula o quanto o usuário scrollou
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            // Calcula a altura total da página menos a altura da janela
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            // Transforma em porcentagem
+            let scrolled = (winScroll / height) * 100;
+
+            // Aplica a porcentagem na largura da div
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+
+    <script>
+        let transicaoFeita = false;
+
+        window.addEventListener('scroll', () => {
+            const loader = document.getElementById('loader-gazoo');
+            const secaoProjetos = document.getElementById('projetos');
+
+            // Dispara a transição ao scrollar 150px
+            if (window.scrollY > 150 && !transicaoFeita) {
+                transicaoFeita = true;
+
+                // 1. Mostra o Loader (Preto + GIF)
+                loader.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Trava o scroll
+
+                setTimeout(() => {
+                    // 2. Move o scroll para a seção de projetos silenciosamente
+                    secaoProjetos.scrollIntoView();
+
+                    // 3. Aguarda o tempo do GIF e esconde o loader
+                    setTimeout(() => {
+                        loader.classList.remove('show');
+                        document.body.style.overflow = 'auto'; // Libera o scroll
+                    }, 1800); // Tempo total que o loader fica na tela (ajuste se quiser mais rápido)
+
+                }, 500); // Pequeno delay para a tela ficar preta antes de mover o scroll
+            }
+        });
+
+
+    </script>
+
+    <script>
+        const revealBox = document.getElementById('carro-reveal');
+
+        if (revealBox) {
+            revealBox.addEventListener('mousemove', (e) => {
+                const rect = revealBox.getBoundingClientRect();
+                // Calcula a posição do mouse relativa ao container
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // 1. ATUALIZA A BOLHA: Faz a máscara e a borda seguirem o mouse
+                revealBox.style.setProperty('--x', `${x}px`);
+                revealBox.style.setProperty('--y', `${y}px`);
+
+                // 2. CRIA O RASTRO: Chama a função da borda líquida
+                criarParticula(x, y);
+            });
+        }
+
+        function criarParticula(x, y) {
+            const particula = document.createElement('div');
+            particula.className = 'rastro-particula';
+
+            // O tamanho deve ser o dobro do raio (--r: 80px) definido no seu CSS
+            const tamanho = 160;
+            particula.style.width = `${tamanho}px`;
+            particula.style.height = `${tamanho}px`;
+            particula.style.left = `${x - tamanho / 2}px`;
+            particula.style.top = `${y - tamanho / 2}px`;
+
+            revealBox.appendChild(particula);
+
+            // Animação da borda expandindo e sumindo
+            requestAnimationFrame(() => {
+                particula.style.transform = 'scale(1.4)'; // Expande a borda
+                particula.style.opacity = '0'; // Faz sumir
+            });
+
+            // Remove do HTML após a animação para não travar o site
+            setTimeout(() => {
+                particula.remove();
+            }, 800);
+        }
+    </script>
+
+</body>
+
+</html>

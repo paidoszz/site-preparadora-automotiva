@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja Oficial SoldHype - Vestuário e Acessórios de Performance.">
+    <title>Store | SoldHype Performance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="progress-bar"
+        style="position: fixed; top: 0; left: 0; height: 4px; background: #e60000; z-index: 10001; width: 0%; transition: width 0.1s ease;">
+    </div>
+
+    <header style="background-color: rgba(0,0,0,0.9); backdrop-filter: blur(10px);">
+        <div class="container header-container">
+            <h1 class="logo">SoldHype Performance</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Voltar ao Início</a></li>
+                    <li><a href="#loja">Coleção</a></li>
+                    <li><a href="index.html#contato">Suporte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="shop-section" id="loja">
+            <div class="video-divider loja-header">
+                <video autoplay muted loop playsinline class="video-divider-bg">
+                    <source src="assets/video/loja.mp4" type="video/mp4">
+                </video>
+                <div class="container video-divider-content">
+                    <div class="text-center">
+                        <span class="tagline">Official Merchandising</span>
+                        <h2>SoldHype Collection</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="shop-grid">
+
+                    <div class="card-projeto">
+                        <div class="projeto-img">
+                            <img src="assets/img/camisa.png" alt="Camiseta Racing">
+                        </div>
+                        <div class="projeto-info">
+                            <span class="categoria">Vestuário</span>
+                            <h3>Camiseta "Limitless"</h3>
+                            <p>Algodão de alta gramatura com modelagem racing.</p>
+                            <div class="preco">R$ 149,90</div>
+                            <a href="loja-camisa.html" class="botao">Comprar Agora</a>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="projeto-img">
+                            <img src="assets/img/chaveiro.png" alt="Bone SoldHype">
+                        </div>
+                        <div class="projeto-info">
+                            <span class="categoria">Premium</span>
+                            <h3>Chaveiro 911 RSR </h3>
+                            <p>Forjado em liga de zinco de alta resistência.</p>
+                            <div class="preco">R$ 79,90</div>
+                            <a href="loja-chave.html" class="botao">Comprar Agora</a>
+                        </div>
+                    </div>
+
+                    <div class="card-projeto">
+                        <div class="projeto-img">
+                            <img src="assets/img/bone.png" alt="Bone SoldHype">
+                        </div>
+                        <div class="projeto-info">
+                            <span class="categoria">Premium</span>
+                            <h3>Bone Snapback Prformance Black</h3>
+                            <p></p>
+                            <div class="preco">R$ 49,90</div>
+                            <a href="loja-bone.html" class="botao">Comprar Agora</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 40px 0; text-align: center; background: #050505; border-top: 1px solid #222;">
+        <p style="color: #666;">&copy; 2026 Marcelo Paidosz Junior. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+</body>
+
+</html>

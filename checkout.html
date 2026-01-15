@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra | SoldHype Performance</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS ESPECÍFICO DO CHECKOUT */
+        body {
+            background: #050505;
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            /* Esquerda Maior, Direita Menor */
+            gap: 40px;
+            padding: 20px;
+        }
+
+        /* Coluna da Esquerda (Formulários) */
+        .checkout-section {
+            background: #111;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+        }
+
+        .checkout-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-style: italic;
+            border-bottom: 2px solid #E60000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            color: #aaa;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #E60000;
+        }
+
+        /* Opções de Pagamento */
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .payment-card {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .payment-card:hover {
+            border-color: #666;
+        }
+
+        /* Classe para quando o pagamento é selecionado */
+        .payment-card.selected {
+            border-color: #E60000;
+            background: rgba(230, 0, 0, 0.1);
+        }
+
+        /* Coluna da Direita (Resumo) */
+        .order-summary {
+            background: #111;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+        }
+
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-style: italic;
+            margin-top: 20px;
+            color: #E60000;
+        }
+
+        .btn-confirmar {
+            width: 100%;
+            padding: 20px;
+            background: #E60000;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-confirmar:hover {
+            background: #ff1a1a;
+            box-shadow: 0 0 15px rgba(230, 0, 0, 0.4);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="padding: 20px; background: #000; border-bottom: 1px solid #222; text-align: center;">
+        <h1 style="font-style: italic; text-transform: uppercase;">SoldHype Checkout</h1>
+    </header>
+
+    <div class="checkout-container">
+
+        <div class="left-column">
+
+            <div class="checkout-section">
+                <h2 class="checkout-title">1. Dados Pessoais</h2>
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Seu nome">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>WhatsApp / Telefone</label>
+                        <input type="text" id="telefone" placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>CPF (Opcional)</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-section">
+                <h2 class="checkout-title">2. Endereço de Entrega</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>CEP</label>
+                        <input type="text" id="cep" placeholder="00000-000">
+                    </div>
+                    <div class="form-group">
+                        <label>Cidade/Estado</label>
+                        <input type="text" id="cidade" placeholder="Ex: São Paulo - SP">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Rua / Avenida</label>
+                        <input type="text" id="rua" placeholder="Nome da rua">
+                    </div>
+                    <div class="form-group">
+                        <label>Número</label>
+                        <input type="text" id="numero" placeholder="123">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-section">
+                <h2 class="checkout-title">3. Forma de Pagamento</h2>
+                <div class="payment-options">
+                    <div class="payment-card selected" onclick="selecionarPagamento('pix', this)">
+                        <h3 style="margin-bottom: 5px;">PIX</h3>
+                        <p style="font-size: 0.8rem; color: #aaa;">Aprovação Imediata</p>
+                    </div>
+                    <div class="payment-card" onclick="selecionarPagamento('cartao', this)">
+                        <h3 style="margin-bottom: 5px;">CARTÃO</h3>
+                        <p style="font-size: 0.8rem; color: #aaa;">Até 12x</p>
+                    </div>
+                </div>
+                <input type="hidden" id="metodo-pagamento" value="pix">
+            </div>
+
+        </div>
+
+        <div class="order-summary">
+            <h2 class="checkout-title">Resumo do Pedido</h2>
+
+            <div id="lista-itens-checkout">
+            </div>
+
+            <div style="margin-top: 20px; border-top: 1px solid #333; padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; color: #aaa;">
+                    <span>Subtotal</span>
+                    <span id="subtotal-valor">R$ 0,00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: #aaa; margin-top: 10px;">
+                    <span>Frete</span>
+                    <span style="color: #E60000;">A combinar</span>
+                </div>
+                <div class="total-line">
+                    <span>TOTAL</span>
+                    <span id="total-final">R$ 0,00</span>
+                </div>
+            </div>
+
+            <button class="btn-confirmar" onclick="enviarPedido()">CONFIRMAR PEDIDO</button>
+            <a href="loja.html"
+                style="display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none;">Voltar
+                para a Loja</a>
+        </div>
+
+        
+
+    </div>
+
+    <script>
+        // 1. Carrega o carrinho
+        let carrinho = JSON.parse(localStorage.getItem('soldhype_cart')) || [];
+        const listaItens = document.getElementById('lista-itens-checkout');
+        const subtotalEl = document.getElementById('subtotal-valor');
+        const totalEl = document.getElementById('total-final');
+
+        // Se o carrinho estiver vazio, volta pra loja
+        if (carrinho.length === 0) {
+            alert("Seu carrinho está vazio!");
+            window.location.href = "loja.html";
+        }
+
+        // 2. Renderiza os itens na lateral
+        let total = 0;
+        carrinho.forEach(item => {
+            total += item.preco;
+            listaItens.innerHTML += `
+                <div class="summary-item">
+                    <div>
+                        <strong style="display:block; font-size: 0.9rem;">${item.nome}</strong>
+                    </div>
+                    <div style="font-weight: bold;">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
+                </div>
+            `;
+        });
+
+        subtotalEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        totalEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+        // 3. Função Visual para Selecionar Pagamento
+        function selecionarPagamento(metodo, elemento) {
+            document.querySelectorAll('.payment-card').forEach(el => el.classList.remove('selected'));
+            elemento.classList.add('selected');
+            document.getElementById('metodo-pagamento').value = metodo;
+        }
+
+        // 4. Enviar Pedido
+        async function enviarPedido() {
+            // 1. Coleta os dados
+            const dados = {
+                nome: document.getElementById('nome').value,
+                fone: document.getElementById('telefone').value,
+                rua: document.getElementById('rua').value,
+                numero: document.getElementById('numero').value,
+                cidade: document.getElementById('cidade').value,
+                pgto: document.getElementById('metodo-pagamento').value.toUpperCase(),
+                total: document.getElementById('total-final').innerText,
+                itens: carrinho.map(i => i.nome).join(', ')
+            };
+
+            // Validação básica
+            if (!dados.nome || !dados.fone || !dados.rua) {
+                // Se quiser um aviso personalizado aqui também, pode usar a mesma lógica do modal
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            // 2. ENVIAR NOTIFICAÇÃO PARA O DISCORD (Seu "Rádio" de pedidos)
+            const webhookURL = "https://discord.com/api/webhooks/1461218104049926166/_JCAEQx6MFRGaV1BotYe7Y5Yt6IUsA55CL1qjQobxG1-h0rArJKN0-qMKQGBiEWIM47T"; // Certifique-se de que sua URL está aqui
+
+            const msgDiscord = {
+                embeds: [{
+                    title: "🏁 NOVO PEDIDO RECEBIDO!",
+                    color: 15073280,
+                    fields: [
+                        { name: "👤 Cliente", value: dados.nome, inline: true },
+                        { name: "📱 Contato", value: dados.fone, inline: true },
+                        { name: "📦 Itens", value: dados.itens },
+                        { name: "💰 Total", value: dados.total, inline: true },
+                        { name: "💳 Pagamento", value: dados.pgto, inline: true },
+                        { name: "📍 Endereço", value: `${dados.rua}, ${dados.numero} - ${dados.cidade}` }
+                    ],
+                    footer: { text: "SoldHype Performance Store" },
+                    timestamp: new Date()
+                }]
+            };
+
+            // Envia silenciosamente para o Discord
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(msgDiscord)
+                });
+
+                // --- A MÁGICA ACONTECE AQUI ---
+
+                // 3. Mostra o Pop-up personalizado
+                document.getElementById('custom-popup').style.display = 'flex';
+
+                // 4. Limpa o carrinho para que o cliente não veja os itens se voltar ao site
+                localStorage.removeItem('soldhype_cart');
+
+            } catch (error) {
+                console.error("Erro ao enviar pedido:", error);
+                alert("Ocorreu um erro ao enviar seu pedido. Tente novamente.");
+            }
+        }
+
+        // Função para o botão do Pop-up
+        function voltarParaHome() {
+            window.location.href = 'index.html'; // Certifique-se de que o nome do arquivo é index.html
+        }
+    </script>
+
+    <div id="custom-popup"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 99999; justify-content: center; align-items: center;">
+        <div
+            style="background: #111; border: 2px solid #E60000; padding: 40px; border-radius: 10px; text-align: center; max-width: 450px; width: 90%; box-shadow: 0 0 30px rgba(230,0,0,0.2);">
+            <div style="font-size: 50px; margin-bottom: 20px;">🏎️</div>
+            <h2 style="color: #fff; font-style: italic; text-transform: uppercase; margin-bottom: 15px;">Pedido
+                Confirmado!</h2>
+            <p style="color: #aaa; line-height: 1.6; margin-bottom: 25px;">
+                Sua solicitação foi enviada com sucesso. Obrigado pela confiança na <strong>SoldHype</strong>!<br><br>
+                Nossa equipe entrará em contato em breve.
+            </p>
+            <button onclick="voltarParaHome()"
+                style="background: #E60000; color: white; border: none; padding: 15px 40px; font-weight: 900; text-transform: uppercase; font-style: italic; cursor: pointer; width: 100%;">
+                Voltar para o Início
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

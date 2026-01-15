@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Corolla | SoldHype</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projeto-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('corolla d.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .projeto-detalhes {
+            padding: 50px 0;
+        }
+
+        .spec-list {
+            list-style: none;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .spec-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 30px;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .btn-voltar:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="progress-bar"
+        style="position: fixed; top: 0; left: 0; height: 4px; background: #e60000; z-index: 10001; width: 0%; transition: width 0.1s ease;">
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">Escuderia</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <header class="projeto-video-header">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="assets/video/video-corolla.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+
+        <div class="container content">
+            <h1 style="font-size: 3.5rem; text-transform: uppercase; font-style: italic;">GR COROLLA</h1>
+            <p style="font-size: 1.2rem; color: #ddd; letter-spacing: 2px;">DRIFT SPEC</p>
+            <div class="audio-control">
+                <button id="btn-audio" class="btn-engine">
+                    <span class="icon">🔊</span> OUVIR MOTOR
+                </button>
+                <audio id="engine-sound" src="assets/audio/ronco-corolla.mp3"></audio>
+            </div>
+        </div>
+    </header>
+
+    <section class="projeto-detalhes">
+        <div class="container">
+            <div class="sobre-texto">
+                <h2>O Desafio</h2>
+                <p>O disruptor moderno. O GR Corolla traz a tecnologia do rally para o asfalto do drift, oferecendo um
+                    chassi curto e extremamente reativo.</p>
+
+                <h3 style="margin-top: 30px;">Especificações Técnicas</h3>
+                <ul class="spec-list">
+                    <li><strong>Potência:</strong> <span><span class="count" data-target="304">0</span>cv</span></li>
+                    <li><strong>Torque:</strong> <span><span class="count" data-target="307">0</span>Nm</span></li>
+                    <li><strong>Chassi:</strong> <span>Reforços de solda a ponto de fábrica para máxima rigidez.</span>
+                    </li>
+                    <li><strong>Foco:</strong> <span>Maneabilidade extrema e torque em baixa.</span></li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">Galeria</h3>
+                <div class="galeria-projeto">
+                    <img src="assets/img/corolla g.jpeg" alt="corolla galeria">
+                    <img src="assets/img/corolla g2.jpeg" alt="corolla galeria">
+                </div>
+
+
+                <a href="categoria-drift.html#projetos" class="btn-voltar">← Voltar para lista de projetos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Marcelo Paidosz Junior.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Seleciona os elementos específicos das páginas de projeto
+            const elementos = document.querySelectorAll('.projeto-header, .projeto-detalhes h2, .projeto-detalhes p, .spec-list li, .galeria-projeto img, .btn-voltar');
+
+            elementos.forEach((el, index) => {
+                // 1. Estado inicial
+                el.style.opacity = "0";
+                el.style.transform = "translateY(20px)";
+                el.style.transition = "opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1)";
+
+                // 2. Disparo da animação (mais rápido que na home para não cansar o usuário)
+                setTimeout(() => {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+
+                    // 3. Limpeza para permitir efeitos de hover (como o neon nas fotos da galeria)
+                    setTimeout(() => {
+                        el.style.transform = "";
+                    }, 700);
+
+                }, 100 * index); // Delay menor (100ms) para as páginas internas
+            });
+        });
+    </script>
+
+    <script>
+        function startCounters() {
+            const counters = document.querySelectorAll('.count');
+            const speed = 50; // Quanto menor, mais rápido o contador
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Dispara o contador após a animação de entrada terminar
+        setTimeout(startCounters, 1000);
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            // Se descer mais de 20px, ele ativa o modo sólido
+            if (window.scrollY > 20) {
+                header.classList.add('header-ativo');
+            } else {
+                header.classList.remove('header-ativo');
+            }
+        });
+    </script>
+
+    <script>
+        window.onscroll = function () {
+            // Calcula o quanto o usuário scrollou
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            // Calcula a altura total da página menos a altura da janela
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            // Transforma em porcentagem
+            let scrolled = (winScroll / height) * 100;
+
+            // Aplica a porcentagem na largura da div
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+    <script>
+        const btnAudio = document.getElementById('btn-audio');
+        const audio = document.getElementById('engine-sound');
+
+        btnAudio.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+                btnAudio.innerHTML = '<span class="icon">⏹</span> PARAR MOTOR';
+                btnAudio.classList.add('playing');
+            } else {
+                audio.pause();
+                audio.currentTime = 0; // Reinicia o som
+                btnAudio.innerHTML = '<span class="icon">🔊</span> OUVIR MOTOR';
+                btnAudio.classList.remove('playing');
+            }
+        });
+
+        // Reduz o volume para ser "sutil" como você pediu
+        audio.volume = 0.4;
+    </script>
+</body>
+
+</html>

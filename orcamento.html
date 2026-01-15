@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria de Projetos | SoldHype</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #050505; color: white; }
+        
+        .project-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .section-card {
+            background: #111;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-style: italic;
+            border-left: 4px solid #E60000;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        label { display: block; color: #666; margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input:focus { border-color: #E60000; }
+
+        /* Estilo dos Cards de Investimento (Igual ao Checkout) */
+        .tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+        
+        .tier-card {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .tier-card:hover { border-color: #E60000; }
+        
+        .tier-card.selected {
+            border-color: #E60000;
+            background: rgba(230, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .tier-card h3 { font-size: 0.9rem; margin-bottom: 5px; }
+        .tier-card p { font-size: 0.7rem; color: #666; }
+
+        .btn-enviar-projeto {
+            width: 100%;
+            padding: 25px;
+            background: #E60000;
+            color: white;
+            border: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .btn-enviar-projeto:hover { background: #ff1a1a; letter-spacing: 2px; }
+
+        /* Modal de Sucesso */
+        #modal-sucesso {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center; align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid, .tier-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="project-container">
+        <header style="text-align: center; margin-bottom: 50px;">
+            <h1 style="font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 2.5rem;">Fichário de Projetos</h1>
+            <p style="color: #666;">Configure o setup do seu carro e receba uma consultoria exclusiva.</p>
+        </header>
+
+        <div class="section-card">
+            <h2 class="section-title">1. Dados do Piloto</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Ex: Ayrton Senna">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="text" id="whatsapp" placeholder="(00) 00000-0000">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">2. Especificações da Máquina</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Modelo e Ano</label>
+                    <input type="text" id="carro" placeholder="Ex: Golf GTI 2015">
+                </div>
+                <div class="form-group">
+                    <label>Motorização Atual</label>
+                    <input type="text" id="motor" placeholder="Ex: 2.0 TSI Original">
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <label>Objetivo Principal</label>
+                <select id="objetivo">
+                    <option value="Rua / Daily Sport">Street</option>
+                    <option value="Track Day / Time Attack">Pista / Drift</option>
+                    <option value="Arrancada / Drag Race">Rally / Off Road</option>
+                    <option value="Show Car / Estética">Motos</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">3. Poder de Fogo (Investimento)</h2>
+            <div class="tier-grid">
+                <div class="tier-card" onclick="selectTier(this, 15073280, 'Stage 1 - Entrada')">
+                    <h3>R$ 5k - 15k</h3>
+                    <p>Remap, Intake, Downpipe ou Estética Básica.</p>
+                </div>
+                <div class="tier-card" onclick="selectTier(this, 16744448, 'Stage 2/3 - Performance')">
+                    <h3>R$ 15k - 50k</h3>
+                    <p>Turbina, Suspensão, Freios e Intercooler.</p>
+                </div>
+                <div class="tier-card" onclick="selectTier(this, 16766720, 'Full Build - Ultimate')">
+                    <h3>R$ 50k+</h3>
+                    <p>Projeto completo do zero, Forjado ou Widebody.</p>
+                </div>
+            </div>
+            <input type="hidden" id="tier-selecionado" value="">
+            <input type="hidden" id="cor-selecionada" value="15073280">
+        </div>
+
+        <button class="btn-enviar-projeto" onclick="enviarProjeto()">Enviar para Consultoria</button>
+    </div>
+
+    <div id="modal-sucesso">
+        <div style="text-align: center; padding: 40px; border: 2px solid #E60000; background: #0a0a0a; border-radius: 10px; max-width: 400px;">
+            <div style="font-size: 50px; margin-bottom: 20px;">🏁</div>
+            <h2 style="font-style: italic; text-transform: uppercase;">Projeto Enviado!</h2>
+            <p style="color: #666; margin: 20px 0;">Recebemos sua ficha técnica. Nossa equipe vai analisar o setup e te chamaremos no WhatsApp.</p>
+            <button onclick="window.location.href='index.html'" style="background: #E60000; color: white; border: none; padding: 15px 30px; font-weight: 900; cursor: pointer; text-transform: uppercase;">Voltar para Home</button>
+        </div>
+    </div>
+
+     <a href="index.html" class="btn-voltar">← Voltar para o Inicio</a>
+
+    <script>
+        function selectTier(element, color, label) {
+            document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+            element.classList.add('selected');
+            document.getElementById('tier-selecionado').value = label + " (" + element.querySelector('h3').innerText + ")";
+            document.getElementById('cor-selecionada').value = color;
+        }
+
+        async function enviarProjeto() {
+            const webhookURL = "https://discord.com/api/webhooks/1461366984615792822/RcvkXrb6ODtLGy1k5iDGctaWO1rUZ5wVOQdpgWp0FN90MpBSxkyRaoREhF_6-SJc9LyR";
+            
+            const dados = {
+                nome: document.getElementById('nome').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                carro: document.getElementById('carro').value,
+                motor: document.getElementById('motor').value,
+                objetivo: document.getElementById('objetivo').value,
+                tier: document.getElementById('tier-selecionado').value,
+                cor: parseInt(document.getElementById('cor-selecionada').value)
+            };
+
+            if(!dados.nome || !dados.carro || !dados.tier) {
+                alert("Por favor, preencha todos os campos e selecione o investimento.");
+                return;
+            }
+
+            // Lógica para marcar @everyone em projetos de alto valor (Tier 50k+)
+            let content = "";
+            if(dados.cor === 16766720) { // Se for a cor "Gold" do Tier 50k+
+                content = "|@everyone| ⚠️**PROJETO DE ALTO VALOR DETECTADO!**⚠️";
+            }
+
+            const payload = {
+                content: content,
+                embeds: [{
+                    title: "🏎️ NOVA FICHA DE PROJETO RECEBIDA",
+                    color: dados.cor,
+                    fields: [
+                        { name: "👤 Piloto", value: dados.nome, inline: true },
+                        { name: "📱 WhatsApp", value: dados.whatsapp, inline: true },
+                        { name: "🚗 Carro", value: dados.carro, inline: true },
+                        { name: "🔧 Setup Atual", value: dados.motor, inline: true },
+                        { name: "🎯 Objetivo", value: dados.objetivo },
+                        { name: "💰 Investimento Previsto", value: `**${dados.tier}**` }
+                    ],
+                    footer: { text: "SoldHype Project Manager" },
+                    timestamp: new Date()
+                }]
+            };
+
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                document.getElementById('modal-sucesso').style.display = 'flex';
+            } catch (error) {
+                alert("Erro ao enviar. Verifique sua conexão.");
+            }
+        }
+    </script>
+</body>
+</html>

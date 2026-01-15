@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camiseta "Limitless"| SoldHype Store</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+    <style>
+        .produto-detalhe-section {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .produto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .visualizador-3d {
+            width: 100%;
+            height: 600px;
+            background: #050505;
+            border: 1px solid #222;
+            border-radius: 8px;
+            position: sticky;
+            top: 100px;
+            overflow: hidden;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            --poster-color: transparent;
+        }
+
+        .controles-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .produto-info-compra h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .preco-premium {
+            font-size: 3rem;
+            color: #E60000;
+            font-weight: 900;
+            font-style: italic;
+            margin: 30px 0;
+        }
+
+        .descricao-longa {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-comprar-final {
+            background-color: #E60000;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-comprar-final:hover {
+            background-color: #ff1a1a;
+            transform: skewX(-10deg);
+            box-shadow: 0 0 20px rgba(230, 0, 0, 0.4);
+        }
+
+        @media (max-width: 992px) {
+            .produto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visualizador-3d {
+                height: 400px;
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background: rgba(0,0,0,0.9); backdrop-filter: blur(10px);">
+        <div class="container header-container">
+            <h1 class="logo">SoldHype Performance</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="loja.html">Loja</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="produto-detalhe-section">
+        <div class="container produto-grid">
+            <div class="visualizador-3d">
+                <model-viewer src="assets/3D/camisa.glb" alt="Chaveiro SoldHype 3D" camera-controls auto-rotate
+                    shadow-intensity="2" exposure="1.5" environment-image="neutral" ar>
+                    <div class="controles-hint">GIRE PARA VER OS DETALHES</div>
+                </model-viewer>
+            </div>
+
+            <div class="produto-info-compra">
+                <span class="categoria"
+                    style="color: #E60000; font-weight: bold; letter-spacing: 2px;">ACCESSORIES</span>
+                <h1>CAMISETA "LIMITLESS" <br></h1>
+
+                <div class="preco-premium">R$ 149,90</div>
+
+                <div class="descricao-longa">
+                    <p>Algodão de alta gramatura com modelagem racing oversized. Estampa frontal em silk screen de alta
+                        durabilidade que resiste a lavagens pesadas.</p>
+                    <br>
+                    <p>• 100% Algodão Premium<br>
+                        • Tag SoldHype original<br>
+                        • Design exclusivo SoldHype Racing</p>
+                </div>
+
+                <a href="#" class="btn-comprar-final">Comprar Agora</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <div id="carrinho-lateral" class="cart-sidebar">
+        <div class="cart-header"
+            style="padding: 20px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-style: italic; text-transform: uppercase; margin: 0;">Seu Carrinho</h2>
+            <button id="fechar-carrinho"
+                style="background: none; border: none; color: white; font-size: 2.5rem; cursor: pointer;">&times;</button>
+        </div>
+
+        <div id="cart-items-container" class="cart-content" style="flex-grow: 1; padding: 20px; overflow-y: auto;">
+        </div>
+
+        <div class="cart-footer" style="padding: 20px; border-top: 1px solid #222; background: #050505;">
+            <div class="total-container"
+                style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem;">
+                <span>TOTAL:</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <a href="checkout.html" class="btn-checkout-page"
+                style="display: block; width: 100%; background: #E60000; color: white; text-align: center; padding: 15px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-style: italic;">
+                Finalizar Compra
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // MEMÓRIA: Carrega ou cria lista vazia
+        let carrinho = JSON.parse(localStorage.getItem('soldhype_cart')) || [];
+
+        // SELEÇÃO DE ELEMENTOS (Agora eles existem no HTML acima!)
+        const cartSidebar = document.getElementById('carrinho-lateral');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const btnFechar = document.getElementById('fechar-carrinho');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalValue = document.getElementById('cart-total-value');
+        const btnAdicionar = document.querySelector('.btn-comprar-final');
+
+        // FUNÇÃO: Atualizar a visualização
+        function atualizarCarrinho() {
+            if (!cartItemsContainer) return; // Segurança extra
+
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (carrinho.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#666; margin-top:40px;">Seu carrinho está vazio.</p>';
+            } else {
+                carrinho.forEach((item, index) => {
+                    total += item.preco;
+                    cartItemsContainer.innerHTML += `
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; background:#111; padding:10px; border-radius:4px;">
+                            <div>
+                                <h4 style="margin:0; font-size:0.8rem; text-transform:uppercase;">${item.nome}</h4>
+                                <p style="margin:0; color:#E60000; font-weight:bold;">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+                            </div>
+                            <button onclick="removerItem(${index})" style="background:none; border:none; color:#666; cursor:pointer; font-weight:bold;">X</button>
+                        </div>`;
+                });
+            }
+            if (cartTotalValue) cartTotalValue.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // FUNÇÃO: Abrir
+        function abrirCarrinho() {
+            if (cartSidebar) cartSidebar.classList.add('active');
+            if (cartOverlay) cartOverlay.classList.add('active');
+        }
+
+        // FUNÇÃO: Fechar
+        function fecharCarrinho() {
+            if (cartSidebar) cartSidebar.classList.remove('active');
+            if (cartOverlay) cartOverlay.classList.remove('active');
+        }
+
+        // FUNÇÃO: Adicionar Item
+        function adicionarItem(e) {
+            if (e) e.preventDefault();
+
+            // Pega dados da tela
+            const nomeEl = document.querySelector('.produto-info-compra h1');
+            const precoEl = document.querySelector('.preco-premium');
+
+            if (nomeEl && precoEl) {
+                const nome = nomeEl.innerText;
+                const preco = parseFloat(precoEl.innerText.replace('R$', '').replace('.', '').replace(',', '.').trim());
+
+                carrinho.push({ nome, preco });
+                localStorage.setItem('soldhype_cart', JSON.stringify(carrinho));
+
+                atualizarCarrinho();
+                abrirCarrinho();
+            }
+        }
+
+        // FUNÇÃO GLOBAL: Remover Item (necessário para o onclick no HTML funcionar)
+        window.removerItem = function (index) {
+            carrinho.splice(index, 1);
+            localStorage.setItem('soldhype_cart', JSON.stringify(carrinho));
+            atualizarCarrinho();
+        }
+
+        // EVENTOS (Onde os erros ocorriam antes)
+        if (btnFechar) btnFechar.addEventListener('click', fecharCarrinho);
+        if (cartOverlay) cartOverlay.addEventListener('click', fecharCarrinho);
+        if (btnAdicionar) btnAdicionar.addEventListener('click', adicionarItem);
+
+        // Inicia
+        document.addEventListener('DOMContentLoaded', atualizarCarrinho);
+    </script>
+
+</body>
+
+</html>

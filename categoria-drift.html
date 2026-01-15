@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Engenharia automotiva de alta performance. Preparação de motores e eletrônica embarcada.">
+    <title>SoldHype | Performance Engineering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="progress-bar"
+        style="position: fixed; top: 0; left: 0; height: 4px; background: #e60000; z-index: 10001; width: 0%; transition: width 0.1s ease;">
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">Projetos de Pista</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html#sobre">Home</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <header class="projeto-video-header">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="assets/video/categoria-drift.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+
+        <div class="container content">
+            <h1 style="font-size: 3.5rem; text-transform: uppercase; font-style: italic;">PROJETOS DE DRIFT</h1>
+            <p style="font-size: 1.2rem; color: #ddd; letter-spacing: 2px;">ENGENHARIA DE ALTA PERFORMANCE</p>
+        </div>
+    </header>
+
+    <section id="projetos" class="secao secao-cinza">
+        <div class="container">
+            <h2 style="text-align: center;">Nossos Projetos</h2>
+
+            <div class="grid-projetos">
+                <article class="card-projeto">
+                    <img src="assets/img/silvia f.jpeg" alt="silvia" class="img-card">
+                    <h3>Nissan Silvia S15</h3>
+                    <p class="descricao-projeto">O equilíbrio perfeito entre aspiração natural e precisão em pista.</p>
+                    <a class="botao" href="projeto-silvia.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/supra f.jpeg" alt="supra" class="img-card">
+                    <h3>Toyota Supra MK5</h3>
+                    <p class="descricao-projeto">Um ícone do DTM restaurado com tecnologias de performance moderna.</p>
+                    <a class="botao" href="projeto-supra.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/rx7 f.jpeg" alt="rx7" class="img-card">
+                    <h3>Mazda RX7</h3>
+                    <p class="descricao-projeto">Engenharia bruta aplicada para o máximo domínio em qualquer terreno.
+                    </p>
+                    <a class="botao" href="projeto-rx7.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/evox f.jpeg" alt="evo x" class="img-card">
+                    <h3> Mitsubishi EVO X </h3>
+                    <p class="descricao-projeto">Agilidade compacta levada ao limite com setup de competição.</p>
+                    <a class="botao" href="projeto-evox.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/corolla f.jpeg" alt="gr corolla" class="img-card">
+                    <h3>GR Corolla</h3>
+                    <p class="descricao-projeto">Construída para resistência extrema e tempos de volta recordes.</p>
+                    <a class="botao" href="projeto-corolla.html">Ver Detalhes</a>
+                </article>
+
+                <article class="card-projeto">
+                    <img src="assets/img/e36 f.jpeg" alt="bmw e36" class="img-card">
+                    <h3>BMW M3 E36</h3>
+                    <p class="descricao-projeto">Performance Off-Road de elite com torque massivo e suspensão reforçada.
+                    </p>
+                    <a class="botao" href="projeto-e36.html">Ver Detalhes</a>
+                </article>
+                <a href="index.html#sobre" class="btn-voltar">← Voltar para o inicio.</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-container">
+        <div class="cta-box">
+            <div class="cta-text">
+                <h2>Pronto para queimar borracha?</h2>
+                <p>Vamos montar o setup que vai te fazer dominar o ângulo e a fumaça.</p>
+            </div>
+            <div class="cta-action">
+                <a href="orcamento.html" class="btn-soldhype-cta">
+                    <span>Solicitar Orçamento</span>
+                    <i class="arrow-icon">→</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="secao">
+        <div class="container">
+            <h2>Contato</h2>
+            <p>Quer falar conosco? Acesse um dos canais abaixo:</p>
+            <ul class="lista-contato">
+                <li><strong>Email:</strong> paidoszjunior@gmail.com</li>
+                <li><strong>Youtube:</strong> <a href="https://www.youtube.com/@paidoszz." target="_blank">Canal
+                        Oficial</a></li>
+                <li><strong>Instagram:</strong> <a
+                        href="https://www.instagram.com/paidoszz?igsh=OHg0NnJ3YTVxbGRp&utm_source=qr"
+                        target="_blank">@paidoszz</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Marcelo Paidosz Junior. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Selecionamos todos os elementos que devem animar
+            const elementos = document.querySelectorAll('.sobre-texto, .sobre-foto, .card-projeto, #contato .container');
+
+            elementos.forEach((el, index) => {
+                // 1. Definimos o estado inicial via JS para não precisar mudar o CSS
+                el.style.opacity = "0";
+                el.style.transform = "translateY(30px)";
+                el.style.transition = "opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+
+                // 2. Disparamos a animação com delay (o 3º card terá o maior delay)
+                setTimeout(() => {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+
+                    // 3. A CHAVE PARA O 3º CARD: 
+                    // Após a animação de entrada terminar (1 segundo depois), 
+                    // removemos o "transform" inline para que o ":hover" do seu CSS volte a mandar no elemento.
+                    setTimeout(() => {
+                        el.style.transform = "";
+                    }, 1000);
+
+                }, 200 * index);
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            // Se descer mais de 20px, ele ativa o modo sólido
+            if (window.scrollY > 20) {
+                header.classList.add('header-ativo');
+            } else {
+                header.classList.remove('header-ativo');
+            }
+        });
+    </script>
+
+    <script>
+        window.onscroll = function () {
+            // Calcula o quanto o usuário scrollou
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            // Calcula a altura total da página menos a altura da janela
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            // Transforma em porcentagem
+            let scrolled = (winScroll / height) * 100;
+
+            // Aplica a porcentagem na largura da div
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+
+
+</body>
+
+</html>

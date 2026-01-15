@@ -1,0 +1,10 @@
+# Mídia pesada
+assets/video/
+assets/audio/
+assets/3D/
+
+# Outros comuns
+node_modules/
+dist/
+build/
+.env
