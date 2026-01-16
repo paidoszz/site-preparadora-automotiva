@@ -12,7 +12,7 @@ A **SoldHype** é uma plataforma focada no mercado automotivo de alta performanc
 ## 🚀 Funcionalidades Principais
 
 - **🛒 E-commerce Engine**: Sistema de carrinho de compras persistente utilizando `LocalStorage`, permitindo que o cliente navegue sem perder os itens selecionados.
-- **📋 Fichário de Projetos**: Um formulário técnico inteligente (dossiê) que recolhe especificações do veículo, objetivos de performance (Track Day, Rua, Arrancada) e estimativa de investimento.
+- **📋 Fichário de Projetos**: Um formulário técnico inteligente (dossiê) que recolhe especificações do veículo, objetivos de performance (Track Day, Rua, Off Road) e estimativa de investimento.
 - **⚡ Checkout Automatizado**: Integração com a API do WhatsApp para finalização de pedidos, enviando todos os dados estruturados diretamente para o vendedor.
 - **🔔 Real-time Webhooks (Discord)**: Sistema de notificação instantânea integrado via Discord Webhooks, com lógica de cores e alertas prioritários (`@everyone`) para projetos de alto orçamento.
 
